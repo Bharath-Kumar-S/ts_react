@@ -8,4 +8,4 @@ const Greet = ({name}: GreetProps) => {
   )
 }
 
-export default Greet
+export default Greet;
