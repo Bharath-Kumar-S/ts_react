@@ -4,6 +4,7 @@ import ClickEventProps from "./components/ClickEventProps";
 import Greet from "./components/Greet";
 import OnChangeHandlerProps from "./components/OnChangeHandlerProps";
 import OptionalProps from "./components/OptionalProps";
+import StylePropTypes from "./components/StylePropTypes";
 import Types from "./components/Types";
 import UnionTypes from "./components/UnionTypes";
 import User from "./components/User";
@@ -32,6 +33,7 @@ function App() {
       <OnChangeHandlerProps handleOnChange={(event)=> {
         console.log(event)
       }}/>
+      <StylePropTypes style={{ display: "block", color: "black", fontWeight: "bold" }}/>
     </div>
   );
 }
