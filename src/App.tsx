@@ -8,6 +8,7 @@ import StylePropTypes from "./components/StylePropTypes";
 import Types from "./components/Types";
 import UnionTypes from "./components/UnionTypes";
 import User from "./components/User";
+import UseStateTypes from "./components/UseStateTypes";
 
 const users = [
   {
@@ -34,6 +35,7 @@ function App() {
         console.log(event)
       }}/>
       <StylePropTypes style={{ display: "block", color: "black", fontWeight: "bold" }}/>
+     <UseStateTypes />
     </div>
   );
 }
