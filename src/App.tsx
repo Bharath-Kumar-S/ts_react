@@ -11,6 +11,10 @@ import UnionTypes from "./components/UnionTypes";
 import User from "./components/User";
 import UseStateTypes from "./components/UseStateTypes";
 
+import { createContext, useState } from "react";
+import ContextHook from "./components/ContextHook";
+import RefHook from "./components/RefHook";
+
 const users = [
   {
     first: "Bharath",
@@ -18,9 +22,21 @@ const users = [
   },
 ];
 
+type UserType = {
+  first: string
+  last: string
+}
+
+export const UserContexts = createContext({first: '', last: ''});
+
 function App() {
+
+  const [UserState, setUserState] = useState<UserType>({ first: '', last: '' }) 
+
+
   return (
-    <div className="App">
+    <UserContexts.Provider value={UserState}>
+    <div className="App" >
       <Greet name="Ramya" />
       <User fname="Ramya" lname="Shanmugam" isUser={true} />
       <Types name={users} />
@@ -39,7 +55,14 @@ function App() {
       <UseStateTypes />
       <br/>
       <HookReducer />
+      <RefHook />
+      <ContextHook />
+        <label>First Name</label>
+        <input onChange={(e) => setUserState((prev)=>{ return {first: `${e.target.value}`, last: prev?.last }})}/>
+        <label>Last Name</label>
+        <input onChange={(e) => setUserState((prev) => { return { first: prev?.first, last: `${e.target.value}` } })} />
     </div>
+    </UserContexts.Provider>
   );
 }
 
